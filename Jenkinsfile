@@ -4,7 +4,7 @@ pipeline {
    stages{
    stage('Checkout or pull from github'){
        steps{
-       git credentialsId: 'b8522e92-ee04-461e-9cf3-fe68e9ac6347', url: 'https://github.com/poornimayo/finalproject.git'
+       git credentialsId: 'b8522e92-ee04-461e-9cf3-fe68e9ac6347', url: 'https://github.com/poornimayo/helloworldwithdocker.git'
        } 
    }
    stage('clean and install dependecies'){
@@ -43,7 +43,7 @@ pipeline {
    }
     stage('deploy or deliver to test server'){
          steps{
-            deploy adapters: [tomcat8(credentialsId: '45ca00c2-79ff-4e10-9725-721a8308e37e', path: '', url: 'http://localhost:9090/')], contextPath: 'project', war: '**/*.war'
+            deploy adapters: [tomcat8(credentialsId: '45ca00c2-79ff-4e10-9725-721a8308e37e', path: '', url: 'http://localhost:9090/')], contextPath: 'project2', war: '**/*.war'
          }
       }
        stage('cucumber report'){
